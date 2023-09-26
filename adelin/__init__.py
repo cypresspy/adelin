@@ -74,24 +74,6 @@ class MakeData:
         return result
 
 
-foods = MakeData("Name","Price_USD","Units_KG","Color", id=True, date=True)
 
-foods("Fruit", "Apple", 5, 200, "Red")
-foods("Fruit", "Apple", 4, 150, "Green")
-foods.save_db("Fruits","product")
-
-foods("xxVegetable", "cucumber", 2, 300, "Green")
-foods("xxVegetable", "tomato", 1, 350," Red")
-foods.save_db("Vegetables","salad")
-
-foods("Eggs", "quail egg", 0.5, 750, "patchy brown")
-foods("Eggs", "chicken egg", 0.1, 1800, "White")
-foods("Eggs", "chicken egg", 0.1, 3200, "Brown")
-foods.save_db("Eggs","eggs")
-
-print(foods.read_db("Eggs","eggs"))
-
-
-print(foods.fetchdata("Vegetables","salad","xxVegetable","Name","Id"))
 
 
