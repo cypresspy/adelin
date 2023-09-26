@@ -1,9 +1,9 @@
 
 from datetime import datetime
-import Filecheck  as FC
-from Readwrite import RW_File
-from DB_Tools import Tools
 import uuid
+from adelin import Filecheck as FC
+from adelin import Readwrite as RW
+from adelin  import DB_Tools as DB
 
 class InvalidInputError(Exception):
     """invalid input in the inherit Object."""
