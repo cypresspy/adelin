@@ -15,7 +15,7 @@ In many cases, we don't need a complex database infrastructure for the applicati
 ## Install
 
 ```bash
-pip install adelin-adelin
+pip install adelin
 ```
 
 ## Usage
