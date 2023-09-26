@@ -37,7 +37,7 @@ class MakeData:
 
         if self.column_up:
             column = column.upper()  
-        print(self.row, args)
+        
         if len(self.row) == len(args):
             
             self.DB.setdefault(column,[])
