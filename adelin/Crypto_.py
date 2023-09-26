@@ -1,6 +1,5 @@
 import base64
-from Object_ import MakeObj
-
+from adelin  import Object_ as OB 
 class EncryptDecrypt:
     """
     The EncryptDecrypt class provides methods for encrypting and decrypting data using Base64 encoding.
@@ -19,7 +18,7 @@ class EncryptDecrypt:
         Args:
             None
         """
-        self.make_obj = MakeObj()               
+        self.make_obj = OB.MakeObj()               
 
     def encrypt(self, key: dict) -> bytes:
         """
