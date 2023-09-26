@@ -1,38 +1,38 @@
-from adelin import Readwrite as RW
+import os
 
+class ADLFileChecker:
+    """
+    The ADLFileChecker class provides methods to check the existence of .adl files in the current directory.
 
-class Tools:
+    Attributes:
+        directory (str): The current working directory as the default directory for file checks.
+
+    Methods:
+        is_exist(file_name): Checks if a specified .adl file exists in the current directory.
+    """
     def __init__(self) -> None:
-        self.rw_file = RW.RW_File()
+        """
+        Initializes an instance of the ADLFileChecker class.
 
-    def del_with_id(self, folder_name: str, file_name: str, id_to_delete: str):
-        temp_db = self.rw_file.read_with_encrypt(file_name, folder_name) 
-        new_temp_db = {}
-        for key, value in temp_db.items():
-            new_value = []
-            for item in value:
-                if "Id" in item and item["Id"] == id_to_delete:                    
-                    continue
-                new_value.append(item)            
-            if new_value:                
-                new_temp_db[key] = new_value
-        self.rw_file.save_with_encrypt(file_name, folder_name, new_temp_db)
-
-    def fetchdata(self, folder_name: str, file_name: str, column: str, *args) -> list:
-        temp_db = self.rw_file.read_with_encrypt(file_name, folder_name)
-        temp_list = []
-
-        for key, value in temp_db.items():
-            if key.isupper():
-                key = key.upper()
-                column = column.upper()
-            if key == column:                
-                for item in value:
-                    if all(arg in item for arg in args):
-                        temp_list.extend(item[arg] for arg in args)
-
-        return temp_list
-
+        Args:
+            None
+        """
+        self.directory = os.getcwd()
         
+    def is_exist(self, file_name: str) -> bool:
+        """
+        Checks if a specified .adl file exists in the current directory.
 
-   
+        Args:
+            file_name (str): The name of the .adl file to be checked (with or without the .adl extension).
+
+        Returns:
+            bool: True if the file exists; otherwise, False.
+        """
+        if not file_name.endswith(".adl"):
+            file_name = file_name + ".adl"        
+        for root, dirs, files in os.walk(self.directory):
+            if f"{file_name}" in files:
+                return True
+        return False
+
