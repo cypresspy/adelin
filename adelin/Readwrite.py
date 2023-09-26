@@ -1,4 +1,4 @@
-from Crypto_ import EncryptDecrypt
+from adelin  import Crypto_ as EN
 import os
 
 class RW_File:
@@ -20,7 +20,7 @@ class RW_File:
         Args:
             None
         """
-        self.secretobj = EncryptDecrypt()
+        self.secretobj = EN.EncryptDecrypt()
         self.file_path = os.getcwd()
 
     def save_with_encrypt(self, file_name: str, folder_name: str, keyx: dict) -> None:
