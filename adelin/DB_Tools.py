@@ -1,9 +1,9 @@
-from Readwrite import RW_File
+from adelin import Readwrite as RW
 
 
 class Tools:
     def __init__(self) -> None:
-        self.rw_file = RW_File()
+        self.rw_file = RW.RW_File()
 
     def del_with_id(self, folder_name: str, file_name: str, id_to_delete: str):
         temp_db = self.rw_file.read_with_encrypt(file_name, folder_name) 
